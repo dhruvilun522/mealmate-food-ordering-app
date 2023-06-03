@@ -10,7 +10,7 @@ export default function Home() {
   const [foodcat, setfoodcat] = useState([]);
   const [fooditem, setfooditem] = useState([]);
   const loaddata = async () => {
-    let response = await fetch('http://localhost:5000/api/fooddata', {
+    let response = await fetch('https://mealmate-ws3d.onrender.com/api/fooddata', {
       method: "post",
       headers: {
         'Content-Type': 'application/json'
