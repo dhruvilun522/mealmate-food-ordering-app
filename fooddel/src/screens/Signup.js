@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import config from '../config';
 
 export default function Signup() {
     let navigate=useNavigate();
@@ -9,7 +10,7 @@ export default function Signup() {
     const handleSubmit= async(e)=>{ 
 
         e.preventDefault();
-        const response= await fetch("https://mealmate-ws3d.onrender.com/api/createuser",{
+        const response= await fetch(`${config.SERVER_PATH}/users`,{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

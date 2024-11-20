@@ -1,5 +1,6 @@
 import React , {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import config from '../config';
 
 export default function Login() {
     let navigate=useNavigate();
@@ -8,7 +9,7 @@ export default function Login() {
     const handleSubmit= async(e)=>{ 
 
         e.preventDefault();
-        const response= await fetch("https://mealmate-ws3d.onrender.com/api/loginuser",{
+        const response= await fetch(`${config.SERVER_PATH}/loginuser`,{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

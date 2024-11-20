@@ -23,6 +23,15 @@ const reducer = (state, action) => {
                   }
               })
                 return arr
+            case 'UPDATE_QTY': 
+                    let updatedCart = [...state];
+                    updatedCart[action.index].qty = action.newQty;
+                    // console.log(updatedCart)
+                    return updatedCart;
+            case 'CLEAR_CART':
+                return []
+        
+                
 
         
         default:

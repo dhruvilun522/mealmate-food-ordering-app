@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react'
 import { Usecart, Usedispatch } from './Contextreducer';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 export default function Card(props) {
-
+    let navigate=useNavigate();
     let options = props.options;
     let priceop = Object.keys(options);
     let fooditem = props.fooditems;
@@ -13,6 +14,11 @@ export default function Card(props) {
     const [qty, setqty] = useState(1);
     const [size, setsize] = useState("");
     const addtocart = async () => {
+        const token = localStorage.getItem('authToken'); // Get JWT token from localStorage
+        if (!token) {
+            
+            navigate('/login')
+        }
 
         let food = []
         for (const item of data) {
@@ -22,7 +28,7 @@ export default function Card(props) {
                 break;
             }
         }
-        if (food !== []) {
+        if (food.length !== 0 ) {
             if (food.size === size) {
               await dispatch({ type: "UPDATE", id: fooditem._id, price:totprice, qty: qty })
               return

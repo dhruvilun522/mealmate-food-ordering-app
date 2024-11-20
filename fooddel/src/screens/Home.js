@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
+import config from '../config';
 
 
+console.log(process.env.SERVER_API)
 export default function Home() {
   const [search, setsearch] = useState("");
 
   const [foodcat, setfoodcat] = useState([]);
   const [fooditem, setfooditem] = useState([]);
   const loaddata = async () => {
-    let response = await fetch('https://mealmate-ws3d.onrender.com/api/fooddata', {
+    let response = await fetch(`${config.SERVER_PATH}/fooddata`, {
       method: "post",
       headers: {
         'Content-Type': 'application/json'

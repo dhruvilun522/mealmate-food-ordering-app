@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const url='mongodb+srv://dhruvilun:rGNcxqBfC1mfS8UC@cluster0.zgzlrzj.mongodb.net/mealmate?retryWrites=true&w=majority';
+require('dotenv').config(); 
+
+const url=process.env.DB_CONN;
 
 const mongoDB=async()=>{
     await mongoose.connect(url,{useNewUrlParser:true},async(err,res)=>{
