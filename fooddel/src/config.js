@@ -1,5 +1,5 @@
 const config = {
-    SERVER_PATH: 'http://localhost:5000/api',
+    SERVER_PATH: 'https://mealmate-ws3d.onrender.com/',
   };
   
   export default config;
